@@ -13,13 +13,18 @@ Source: -
 06. Labs
 07. Run
 08. Environment Variables
-09.
-10.
-11.
-12.
-13.
+09. Images
+10. CMD vs ENTRYPOINT
+11. Networking
+12. Storage
+13. Compose
 14.
 15.
+16.
+17.
+18.
+19.
+20.
 
 ## Notes
 
@@ -80,6 +85,55 @@ Source: -
 #### Container Logs
 `$ docker logs {container-name|container-id}`
 
+#### Docker History
+`docker history {image-name|image-id}`
+
 ### Environment Variables
 `$ docker run -e ENV_VAR=value {image-name|image-id}`
 Use 'docker imspect' to view environment variables set.
+
+### Create Docker Image
+
+* Cerate DockerFile
+
+`$ docker build {.|Dockerfile} -t {image-name}`
+
+### Networks
+
+* Bridge `docker run {image-name|image-id}`
+* Host   `docker run {image-name|image-id} --network=host`
+* Null   `docker run {image-name|image-id} --network=none`
+
+DNS Server: 127.0.0.11
+
+### Storage
+
+/var/lib/docker
+  + aufs
+  + containers
+  + image
+  + volumes
+
+#### Volume Mounting
+`$ docker volume create {data_volume}`
+`$ docker run -v {data_volume}:{in-directory-path} {image-name|image-id}`
+
+#### Bindd Mounting
+`$ docker run -v {out-directory-path}:{in-directory-path} {image-name|image-id}`
+
+#### Mount Option
+`$ docker run --mount type=bind,source={out-directory-path},target={in-directory-path} {image-name|image-id}`
+
+#### Storage Drivers
+
+* AUFS
+* ZFS
+* BTRFS
+* Device Mapper
+* Overlay
+* Overlay2
+### Docker Compose
+
+`docker-compose.yaml`
+
+`$ docker compose build`
