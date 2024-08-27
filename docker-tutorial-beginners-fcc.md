@@ -18,7 +18,7 @@ Source: -
 11. Networking
 12. Storage
 13. Compose
-14.
+14. Registry
 15.
 16.
 17.
@@ -137,3 +137,17 @@ DNS Server: 127.0.0.11
 `docker-compose.yaml`
 
 `$ docker compose build`
+
+## Registry
+
+### Deploy Private Registry
+
+`$ docker run -d -p 5000:5000 --name registry registry:2`
+
+`$ docker image tag my-image localhost:5000/my-image`
+
+`$ docker push localhost:5000/my-image`
+
+`$ docker pull localhost:5000/my-image`
+or
+`$ docker pull 192.168.56.100:5000/my-image`
