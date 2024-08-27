@@ -10,8 +10,8 @@ Source: -
 03. Getting Started
 04. Install Docker
 05. Commands
-06.
-07.
+06. Labs
+07. Run
 08.
 09.
 10.
@@ -65,3 +65,17 @@ Source: -
 #### Attach to Running Continer
 `$ docker attach {container-name|container-id}`
 
+#### Interactive & Terminal Container
+`$ docker run -it {image-name|image-id}`
+
+#### Port Mapping
+`$ docker run -p {external-port:internal-port} {image-name|image-id}`
+
+#### Volume Mapping
+`S docker run -v {external-path:internal-path} {image-name|image-id}`
+
+#### Inspect Container
+`$ docker inspect {container-name|container-id}`
+
+#### Container Logs
+`$ docker logs {container-name|container-id}`
