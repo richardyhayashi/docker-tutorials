@@ -12,7 +12,7 @@ Source: -
 05. Commands
 06. Labs
 07. Run
-08.
+08. Environment Variables
 09.
 10.
 11.
@@ -79,3 +79,7 @@ Source: -
 
 #### Container Logs
 `$ docker logs {container-name|container-id}`
+
+### Environment Variables
+`$ docker run -e ENV_VAR=value {image-name|image-id}`
+Use 'docker imspect' to view environment variables set.
